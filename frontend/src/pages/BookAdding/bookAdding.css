@@ -1,0 +1,156 @@
+/* styles.css */
+
+/* Reset some basic browser styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 50vw;
+  max-width:70vw;
+  margin: 100px auto;
+  background-color: #ffffffac;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.container h1 {
+  font-family: Playfair display,serif;
+  text-align: center;
+  margin:0px  10px ;
+  background-color: rgba(255, 255, 255, 0.814);
+  border-radius: 4px;
+}
+.container p{
+  font-family:PT serif, serif;
+  text-align: center;margin-top:50px;
+  font-size: 1.2rem;
+  color:#0f1211;
+   text-shadow: 2px 2px 2px white;
+}
+
+/* Form styling */
+.book-form {
+  margin-top: 20px;
+  padding:40px;
+  font-family: Arima,serif;
+}
+
+.book-fields .book-entry {
+  margin-bottom: 20px;
+}
+
+.book-entry h2 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+  color: #00416a;
+  font-family: Arima,serif;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.form-group textarea {
+  resize: none;
+}
+
+/* Button Styling with New Colors */
+ 
+.btn-submit, 
+.remove-book-btn {
+  background-color: #82b74b; /* New button color */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  display: inline-block;
+  margin-top: 10px;
+}
+.btn-add-book{
+  padding: 10px 15px;
+  margin-left: 5px;
+  background-color: #03254c;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.btn-submit {
+  width: 100%;
+}
+
+.remove-book-btn {
+  background-color: #e74c3c;
+}
+
+.remove-book-btn:hover {
+  background-color: #c0392b;
+}
+
+/* Hover effect for buttons */
+.btn-add-book:hover, 
+.btn-submit:hover {
+  background-color: #240e67; /* New hover color */
+  color: white; /* Ensure text is visible on hover */
+}
+
+hr {
+  margin-top: 20px;
+  border-color: #ccc;
+}
+
+
+/* Form styling */
+.book-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Image preview */
+.image-preview {
+  width: 100%;
+  margin-top: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  display: block; /* Initially hidden; shown when an image is selected */
+}

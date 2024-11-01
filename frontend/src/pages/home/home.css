@@ -1,0 +1,180 @@
+/* Font Imports */
+/* PlayFair Display  */
+@import url('https://fonts.googleapis.com/css2?family=Flavors&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/* Arime -Body font */
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Flavors&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/* font-family: "Arima", system-ui; */
+/*PT serif - Heading  */
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Flavors&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/*  font-family: "PT Serif", serif; */
+
+
+/* Resets */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow-x:hidden;
+}
+
+/* general Styles */
+.body {
+  font-family: Arial, sans-serif;
+  background-color:rgba(255, 255, 255, 0.816);
+}
+
+/* Utilities */
+button{
+  padding: 6px 10px;
+  margin-left: 5px;
+  background-color: #f0a500;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button :hover{
+  background-color: #e59b00;
+}
+
+/* Welcome Section begins */
+.welcome-section {
+  background-color:#f4978e; /* Dark Green hero section */
+  padding: 80px 20px; /* Reduced padding */
+  text-align: center;
+  color: #03254ce5;
+  font-family: PT serif , serif;
+  margin-bottom: 30px;
+  margin-top: 40px;
+
+}
+
+.welcome-section h2 {
+  font-size: 4em;
+  text-shadow: 2px 2px 2px white;
+}
+
+.welcome-section p {
+  font-size: 1.5em;
+  margin: 20px 0;
+  font-weight:bold;
+}
+
+#explore-btn {
+  margin-top:10px;
+  font-family: Arima , serif;
+  font-weight: bold;
+  padding: 10px 30px;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin-left: 5px;
+  background-color:#e59b00;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+#explore-btn:hover {
+  background-color:  #d59303;
+
+}
+
+/* Welcome SEction Ends */
+
+/* Sliders Section starts */
+.genre-section {
+  margin: 20px 0;
+}
+
+.genre-section h2 {
+  text-align: center;
+  font-family:Arima ,serif;
+  color: #03254c;
+  text-shadow: 2px 2px 2px white;
+  font-size: 2.5rem;
+}
+
+.slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  overflow-x:visible;
+  gap:10px;
+  padding:10px;
+  scroll-behavior: smooth;
+}
+
+.book-card {
+  display: flex;
+  flex-direction: column;
+  background: #efc8b18b;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 200px;
+  min-height:300px;
+  margin: 0 10px;
+  text-align: center;
+  font-family: "Arima", system-ui;
+}
+.book-card img{
+  width:130px;
+  height: 170px;
+  padding:10px;
+  padding-right:20px;
+  transform: translate(23px);
+  border-radius:5px;
+}
+.book-card h3 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+
+.book-card p {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+
+.book-card button {
+  background-color: #f0a500;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.book-card button:hover {
+  background-color: #e59b00;
+}
+
+.slide-arrow {
+  font-size: 2rem;
+  color: #03254c;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.slide-arrow.prev {
+  left: 5px;
+}
+
+.slide-arrow.next {
+  right: 5px;
+}
+
+/* Sliders Section Ends */

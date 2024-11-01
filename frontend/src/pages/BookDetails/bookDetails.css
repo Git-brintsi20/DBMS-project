@@ -1,0 +1,204 @@
+
+/* Font Imports */
+@import url('https://fonts.googleapis.com/css2?family=Flavors&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/*PT serif - Heading  */
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Flavors&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/*  font-family: "PT Serif", serif; */
+/* Arima -Body font */
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Flavors&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/* 
+/* Book Details Section */
+/* General Layout */
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8ae9de9;
+  box-sizing: border-box;
+  overflow-x:hidden;
+}
+
+#book-details {
+  max-width: 1100px;
+  padding: 25px;
+  margin: 100px 80px;
+}
+
+.details-container{
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px ;
+  border-radius: 10px;
+}
+
+.left-column, .right-column {
+  flex: 1;
+}
+
+.left-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 50px;
+  border-right: 2px solid #f4f4f4;
+}
+
+.book-cover-details {
+  width: 180px;
+  height: 270px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.details-text {
+  text-align: center;
+}
+
+.details-text h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  font-family: PT serif , serif ;
+}
+
+
+.details-text p {
+  font-size: 1rem;
+  font-family: PT serif , serif ;
+}
+
+.exchange-btn {
+  padding: 6px 10px;
+  margin-left: 5px;
+  margin-top:10px;
+  background-color: #f0a500;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.exchange-btn:hover {
+  background-color: #e59b00;
+}
+
+/* Right Column */
+.right-column {
+  padding-left:40px;
+  margin-right:20px;
+}
+
+.right-column h3 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  font-family: arima, serif;
+}
+
+.exchanger-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.exchanger-card {
+  background-color:  #efc8b18b;
+  border-radius: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.exchanger-card h4 {
+  margin-bottom: 5px;
+  font-family: arima, serif;
+}
+
+.exchanger-card p {
+  margin-bottom: 8px;
+  font-family: arima, serif;
+}
+
+.message-btn {
+  padding: 6px 10px;
+  margin-left: 5px;
+  background-color: #f0a500;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.message-btn:hover {
+  background-color: #e59b00;
+}
+
+
+/* Book Description */
+#book-description {
+  padding: 15px;
+  max-width: 1200px;
+  background-color: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 5px 100px;
+  height:auto;
+}
+
+#book-description h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-family: Pt serif,serif;
+}
+
+#book-description p {
+  font-size: 1rem;
+  text-align:left;
+  font-family: arima, serif;
+}
+
+/* Reviews Section */
+#reviews {
+  padding: 20px;
+  max-width:  1200px;
+  margin: 20px auto;
+  background-color: rgba(255, 255, 255, 0.76);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin: 40px 100px;
+ 
+
+}
+.userReviews{
+  display: flex;
+  gap:20px;
+}
+
+#reviews h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  font-family: Pt serif,serif;
+}
+
+.review {
+  background-color:  #efc8b18b;
+  border-radius: 10px;
+  padding: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.review p {
+  font-size: 1rem;
+  font-family: arima, serif;
+}
+
+.review h4 {
+  font-size: 1em;
+  font-weight: bold;
+  text-align: right;
+  font-family: arima, serif;
+  margin-top:0px;
+}
+
+
