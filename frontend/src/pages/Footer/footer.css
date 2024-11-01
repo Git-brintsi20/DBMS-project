@@ -1,0 +1,121 @@
+
+/* Font Imports */
+/* PlayFair Display  */
+@import url('https://fonts.googleapis.com/css2?family=Flavors&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/* Arime -Body font */
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Flavors&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/* font-family: "Arima", system-ui; */
+/*PT serif - Heading  */
+@import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&family=Flavors&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+/*  font-family: "PT Serif", serif; */
+
+.footer{
+  margin:0;
+  padding:0px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  max-height:75vh;
+  margin-top:50px;
+
+}
+
+  /* Footer Styling */
+.footer {
+  background-color: rgba(255, 255, 255, 0.575) ;/* Deep Navy Blue */
+  color: black; /* Soft Peach */
+  padding: 40px;
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  justify-items: center;
+}
+
+/* Icon Section */
+.footer-icon-section {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin-top:5px;
+  margin-bottom:10px;
+  font-family:Arima ,serif;
+  font-weight:bold;
+  font-size:1.1rem;
+
+ 
+}
+.footer-icon-section{
+  gap: 100px; 
+}
+
+.footer-icon-section .icon-item {
+  text-align: center;
+
+}
+
+.icon-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid black; /* Muted Gold */
+}
+
+/* About and Contact Sections */
+.footer-about-section, .footer-contact-section,.policies {
+  padding:10px;
+  border-radius: 10px;
+  width: 80%;
+  text-align: center;
+}
+
+.footer-contact-section,.policies {
+  transform: translate(50px);
+}
+
+.footer-about-section h4, .footer-contact-section h4, .policies h4 {
+  color:#f08080; /* Muted Gold */
+  text-align:left;
+  margin-bottom:3px;
+  font-family:Playfair display , serif;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-bottom:5px;
+  
+}
+
+.footer-about-section p, .footer-contact-section p , .policies p{
+  font-size: 0.9em;
+  color:black ;/* Soft Peach */
+  text-align:left;
+  font-weight: bold;
+  font-family: pt serif , serif;
+}
+
+
+.contact-imgs{
+  display: flex;
+  gap:8px;
+}
+.contact-imgs img{
+  width:30px;
+  height:30px;
+
+}
+
+.footer-copyright-section  {
+  text-align: right;
+  font-family:PT serif ,serif ;
+  margin-top:5px;
+  font-weight: bold;
+  transform: translate(0,20px);
+  }
