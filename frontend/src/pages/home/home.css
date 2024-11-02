@@ -34,7 +34,7 @@ button{
   cursor: pointer;
 }
 
-button :hover{
+button:hover{
   background-color: #e59b00;
 }
 
@@ -44,7 +44,7 @@ button :hover{
   padding: 80px 20px; /* Reduced padding */
   text-align: center;
   color: #03254ce5;
-  font-family: PT serif , serif;
+  font-family: "PT serif" , serif;
   margin-bottom: 30px;
   margin-top: 40px;
 
@@ -63,7 +63,7 @@ button :hover{
 
 #explore-btn {
   margin-top:10px;
-  font-family: Arima , serif;
+  font-family:"Arima" , serif;
   font-weight: bold;
   padding: 10px 30px;
   font-size: 1.2em;
@@ -91,7 +91,7 @@ button :hover{
 
 .genre-section h2 {
   text-align: center;
-  font-family:Arima ,serif;
+  font-family:"Arima" ,serif;
   color: #03254c;
   text-shadow: 2px 2px 2px white;
   font-size: 2.5rem;
@@ -101,14 +101,13 @@ button :hover{
   position: relative;
   display: flex;
   align-items: center;
-  overflow: hidden;
   width: 100%;
 }
 
 .slider {
   display: flex;
   transition: transform 0.3s ease-in-out;
-  overflow-x:visible;
+  overflow-x:auto;
   gap:10px;
   padding:10px;
   scroll-behavior: smooth;
@@ -123,6 +122,7 @@ button :hover{
   padding: 20px;
   width: 200px;
   min-height:300px;
+  min-width:200px;
   margin: 0 10px;
   text-align: center;
   font-family: "Arima", system-ui;
@@ -167,6 +167,7 @@ button :hover{
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  z-index:1;
 }
 
 .slide-arrow.prev {
@@ -176,5 +177,23 @@ button :hover{
 .slide-arrow.next {
   right: 5px;
 }
+.prev {
+  left: 0;
+}
 
+.next {
+  right: 0;
+}
+
+/* Hiding scroll bar  */
+.slider{
+  scrollbar-width: none;
+  overflow-x: scroll; /* This keeps the horizontal scroll functionality */
+  overflow-y: hidden;
+}
+
+
+.slider::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Edge */
+}
 /* Sliders Section Ends */
