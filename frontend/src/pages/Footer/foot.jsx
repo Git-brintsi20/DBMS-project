@@ -1,5 +1,7 @@
 import React from 'react'
 import"./footer.css" ;
+import anupam from "../images/anupam.jpg"
+import prachi from "../images/prachi.jpg"
 import user from "../images/user.jpg"
 import insta from "../images/instagram.png"
 import twitter from "../images/twitter.png"
@@ -10,38 +12,38 @@ const Footer = () => {
 <>
 
   <div className="footer">
-  <div class="footer-grid">
+  <div className="footer-grid">
     {/* <!-- Icon Section --> */}
-    <div class="footer-icon-section">
-      <div class="icon-item">
-        <img src={user} alt="Icon 1" class="icon-img"></img>
+    <div className="footer-icon-section">
+      <div className="icon-item">
+        <img src={anupam} alt="Icon 1" className="icon-img"></img>
         <p>Anupam Singh</p>
       </div>
-      <div class="icon-item">
-        <img src={user} alt="Icon 2" class="icon-img"></img>
+      <div className="icon-item">
+        <img src={prachi} alt="Icon 2" className="icon-img"></img>
         <p>Prachi</p>
       </div>
-      <div class="icon-item">
-        <img src={user} alt="Icon 3" class="icon-img"></img>
+      <div className="icon-item">
+        <img src={user} alt="Icon 3" className="icon-img"></img>
         <p>Harshita Bhanu</p>
       </div>
-      <div class="icon-item">
-        <img src={user} alt="Icon 4" class="icon-img"></img>
+      <div className="icon-item">
+        <img src={user} alt="Icon 4" className="icon-img"></img>
         <p>Prakriti Pal</p>
       </div>
-      <div class="icon-item">
-        <img src={user} alt="Icon 5" class="icon-img"></img>
+      <div className="icon-item">
+        <img src={user} alt="Icon 5" className="icon-img"></img>
         <p>Prasidh</p>
       </div>
     </div>
 
     {/* <!-- About and Contact Sections --> */}
-    <div class="footer-about-section">
+    <div className="footer-about-section">
       <h4>About Us</h4>
       <p>We are dedicated to bringing you the best resources and information.We are a dedicated team of Aspiring Engineers aiming to skill up in the field of web development.</p>
     </div>
   
-    <div class="footer-contact-section">
+    <div className="footer-contact-section">
       <h4>Contact Us</h4>
       <p>Email: info@example.com</p>
       <p>Phone: +123 456 7890</p>

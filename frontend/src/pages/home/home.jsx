@@ -1,75 +1,92 @@
-import React, { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import './home.css';
-
-import placeholder1 from '../images/book-cover-placeholder1.jpeg';
-import placeholder2 from '../images/book-cover-placeholder2.jpeg';
-import placeholder3 from '../images/book-cover-placeholder3.jpeg';
-import placeholder4 from '../images/book-cover-placeholder4.jpeg';
-import placeholder5 from '../images/book-cover-placeholder5.jpeg';
+import axios from "axios";
 
 const genres = [
-  { id: 'fiction', title: 'Fiction' },
-  { id: 'nonfiction', title: 'Non-Fiction' },
-  { id: 'self-help', title: 'Self-Help' },
-  { id: 'technology', title: 'Technology' },
-];
-
-const books = [
-  { image: placeholder1, title: 'Book Title 1', author: 'Author 1' },
-  { image: placeholder2, title: 'Book Title 2', author: 'Author 2' },
-  { image: placeholder3, title: 'Book Title 3', author: 'Author 3' },
-  { image: placeholder4, title: 'Book Title 4', author: 'Author 4' },
-  { image: placeholder5, title: 'Book Title 5', author: 'Author 5' },
-  { image: placeholder2, title: 'Book Title 6', author: 'Author 6' },
-  { image: placeholder1, title: 'Book Title 1', author: 'Author 1' },
-  { image: placeholder2, title: 'Book Title 2', author: 'Author 2' },
-  { image: placeholder3, title: 'Book Title 3', author: 'Author 3' },
-  { image: placeholder4, title: 'Book Title 4', author: 'Author 4' },
-  { image: placeholder5, title: 'Book Title 5', author: 'Author 5' },
-  { image: placeholder2, title: 'Book Title 6', author: 'Author 6' },
+    { id: 'fiction', title: 'Fiction' },
+    { id: 'nonfiction', title: 'Science' },
+    { id: 'self-help', title: 'Mathematics' },
+    { id: 'technology', title: 'Cooking' },
 ];
 
 const Home = () => {
-  const sliderRefs = useRef({});
+    const sliderRefs = useRef({});
+    const [allBooks, setAllBooks] = useState([]);
 
-  const slide = (genre, direction) => {
-    const slider = sliderRefs.current[genre];
-    if (slider) {
-      slider.scrollLeft += direction * 250; // Adjust 250 to control scroll speed
-    }
-  };
+    const fetchData = async () => {
+        const allFetchedBooks = [];
+        const uniqueBookIds = new Set();
 
-  return (
-    <div className='body'>
-      {/* Welcome Section */}
-      <section className="welcome-section">
-        <h2>Welcome to <span className="Title">KitabeXchange</span></h2>
-        <p>Your gateway to exchanging books and sharing stories!</p>
-        <button id="explore-btn">Explore Now</button>
-      </section>
+        for (const genre of genres) {
+            try {
+                const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${genre.title}`);
+                const books = response.data.items || [];
 
-      {/* Genre Display Sections */}
-      {genres.map((genre) => (
-        <div className="genre-section" id={genre.id} key={genre.id}>
-          <h2>{genre.title}</h2>
-          <div className="slider-container">
-            <button className="slide-arrow prev" onClick={() => slide(genre.id, -1)}>&#10094;</button>
-            <div className="slider" ref={(el) => (sliderRefs.current[genre.id] = el)}>
-              {books.map((book, index) => (
-                <div className="book-card" key={`${genre.id}-${index}`}>
-                  <img src={book.image} alt="Book Cover" className="book-cover-details" />
-                  <h3>Title: {book.title}</h3>
-                  <p>Author: {book.author}</p>
-                  <button>Exchange Now</button>
+                books.forEach((book) => {
+                    if (!uniqueBookIds.has(book.id)) {
+                        uniqueBookIds.add(book.id);
+                        allFetchedBooks.push(book);
+                    }
+                });
+            } catch (error) {
+                console.error('Error fetching books:', error);
+            }
+        }
+
+        setAllBooks(allFetchedBooks);
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    const slide = (genre, direction) => {
+        const slider = sliderRefs.current[genre];
+        if (slider) {
+            slider.scrollLeft += direction * 250;
+        }
+    };
+
+    return (
+        <div className='body'>
+
+            <section className="welcome-section">
+                <h2>Welcome to <span className="Title">KitabeXchange</span></h2>
+                <p>Your gateway to exchanging books and sharing stories!</p>
+                <button id="explore-btn">Explore Now</button>
+            </section>
+
+
+            {genres.map((genre) => (
+                <div className="genre-section" id={genre.id} key={genre.id}>
+                    <h2>{genre.title}</h2>
+                    <div className="slider-container">
+                        <button className="slide-arrow prev" onClick={() => slide(genre.id, -1)}>&#10094;</button>
+                        <div className="slider" ref={(el) => (sliderRefs.current[genre.id] = el)}>
+                            {allBooks.filter((book) => book.volumeInfo?.categories?.includes(genre.title))
+                                .slice(0, 15)
+                                .map((book, index) => (
+                                    <div className="book-card" key={`${genre.id}-${index}`}>
+                                        {book.volumeInfo && (
+                                            <>
+                                                <img src={book.volumeInfo.imageLinks?.thumbnail} alt="Book Cover" className="book-cover-details" />
+                                                <h3>Title: {book.volumeInfo.title}</h3>
+                                                <p>Author: {book.volumeInfo.authors?.[0]}</p>
+                                                <button onClick={()=>{console.log(book.id)}}>Exchange Now</button>
+                                            </>
+                                        )}
+                                        {!book.volumeInfo && (
+                                            <p>No book information available.</p>
+                                        )}
+                                    </div>
+                                ))}
+                        </div>
+                        <button className="slide-arrow next" onClick={() => slide(genre.id, 1)}>&#10095;</button>
+                    </div>
                 </div>
-              ))}
-            </div>
-            <button className="slide-arrow next" onClick={() => slide(genre.id, 1)}>&#10095;</button>
-          </div>
+            ))}
         </div>
-      ))}
-    </div>
-  );
+    );
 };
 
 export default Home;
