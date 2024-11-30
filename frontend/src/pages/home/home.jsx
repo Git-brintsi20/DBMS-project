@@ -19,7 +19,7 @@ const Home = () => {
 
         for (const genre of genres) {
             try {
-                const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${genre.title}`);
+                const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${genre.title}&key=AIzaSyBax7oG81H6xe2QJvhJpx9WrDT0xySwko4`);
                 const books = response.data.items || [];
 
                 books.forEach((book) => {

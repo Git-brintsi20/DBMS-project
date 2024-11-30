@@ -58,8 +58,8 @@ const Navbar = () => {
         </div>
         <div>
         <ul className="nav-links">
-          <li><a href="#">Sign Up</a></li>
-          <li><a href="#">Login</a></li>
+          <li><a href="/signup">Sign Up</a></li>
+          <li><a href="/login">Login</a></li>
         </ul>
         </div>
         <div className="Navicons">

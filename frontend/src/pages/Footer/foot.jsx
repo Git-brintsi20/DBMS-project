@@ -1,7 +1,7 @@
-import React from 'react'
 import"./footer.css" ;
 import anupam from "../images/anupam.jpg"
 import prachi from "../images/prachi.jpg"
+import prakriti from "../images/prakriti.jpg"
 import user from "../images/user.jpg"
 import insta from "../images/instagram.png"
 import twitter from "../images/twitter.png"
@@ -28,7 +28,7 @@ const Footer = () => {
         <p>Harshita Bhanu</p>
       </div>
       <div className="icon-item">
-        <img src={user} alt="Icon 4" className="icon-img"></img>
+        <img src={prakriti} alt="Icon 4" className="icon-img"></img>
         <p>Prakriti Pal</p>
       </div>
       <div className="icon-item">
