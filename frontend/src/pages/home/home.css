@@ -14,7 +14,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x:hidden;
+  /*overflow-x:hidden;*/
 }
 
 /* general Styles */
@@ -107,7 +107,7 @@ button:hover{
 .slider {
   display: flex;
   transition: transform 0.3s ease-in-out;
-  overflow-x:auto;
+  /*overflow-x:auto;*/
   gap:10px;
   padding:10px;
   scroll-behavior: smooth;
@@ -188,7 +188,7 @@ button:hover{
 /* Hiding scroll bar  */
 .slider{
   scrollbar-width: none;
-  overflow-x: scroll; /* This keeps the horizontal scroll functionality */
+  /*overflow-x: scroll; !* This keeps the horizontal scroll functionality *!*/
   overflow-y: hidden;
 }
 
