@@ -1,0 +1,24 @@
+
+.photo-upload{
+  margin:40vh 20vw; 
+  padding:20vh 20vw; 
+  border:2px solid black;
+}
+h2{
+  margin:10px 10px;
+}
+input{
+  margin:10px 10px;
+}
+button{
+  margin:10px 10px;
+}
+
+/* profilePhoto.css */
+.profile-image {
+  margin-top: 20px;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+}

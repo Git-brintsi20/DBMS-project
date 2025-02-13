@@ -8,6 +8,8 @@ import Login from "./pages/Login/login";
 import Signup from "./pages/Signup/signup";
 import BookDetails from "./pages/BookDetails/bookDetails";
 import BookAdding from "./pages/BookAdding/bookAdding";
+import ProfilePhotoUpload from './pages/ProfilePhotoUpload/profilePhotoUpload'; 
+
 
 function App() {
 
@@ -25,7 +27,10 @@ function App() {
 
                         <Route path="/login" element={ <Login/>}/>                        
                          
-                        <Route path={"/signup"} element={<Signup/>}/>                       
+                        <Route path={"/signup"} element={<Signup/>}/>     
+
+                        <Route path="/upload" element={<ProfilePhotoUpload />} /> 
+               
                          
                         
                     </Routes>
