@@ -21,7 +21,8 @@ function App() {
 
                         <Route path="/" element={<Home/>}/>
 
-                        <Route path="/bookDetails" element={<BookDetails/>}/>  
+                        {/*<Route path="/bookDetails" element={<BookDetails/>}/>*/}
+                        <Route path="/book-details/:id" element={<BookDetails />}/>
 
                         <Route path="/bookAdding" element={<BookAdding/>}/>                   
 

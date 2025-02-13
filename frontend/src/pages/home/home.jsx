@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import './home.css';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const genres = [
     { id: 'fiction', title: 'Fiction' },
@@ -12,6 +13,7 @@ const genres = [
 const Home = () => {
     const sliderRefs = useRef({});
     const [allBooks, setAllBooks] = useState([]);
+    const navigate = useNavigate();
 
     const fetchData = async () => {
         const allFetchedBooks = [];
@@ -19,7 +21,7 @@ const Home = () => {
 
         for (const genre of genres) {
             try {
-                const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${genre.title}`);
+                const response = await axios.get(`https://www.googleapis.com/books/v1/volumes?q=subject:${genre.title}&key=AIzaSyBax7oG81H6xe2QJvhJpx9WrDT0xySwko4`);
                 const books = response.data.items || [];
 
                 books.forEach((book) => {
@@ -40,11 +42,36 @@ const Home = () => {
         fetchData();
     }, []);
 
+    useEffect(() => {
+        const checkAuth = async () => {
+            const token = localStorage.getItem("token");
+            if (!token) {
+                navigate("/login");
+                return;
+            }
+
+            try {
+                await axios.get("http://localhost:3000/home", {
+                    headers: { Authorization: `Bearer ${token}` },
+                });
+            } catch (err) {
+                localStorage.removeItem("token");
+                navigate("/login");
+            }
+        };
+
+        checkAuth();
+    }, [navigate]);
+
     const slide = (genre, direction) => {
         const slider = sliderRefs.current[genre];
         if (slider) {
             slider.scrollLeft += direction * 250;
         }
+    };
+
+    const handleExchangeClick = (bookId) => {
+        navigate(`/book-details/${bookId}`); // Redirect to the BookDetails page
     };
 
     return (
@@ -55,7 +82,6 @@ const Home = () => {
                 <p>Your gateway to exchanging books and sharing stories!</p>
                 <button id="explore-btn">Explore Now</button>
             </section>
-
 
             {genres.map((genre) => (
                 <div className="genre-section" id={genre.id} key={genre.id}>
@@ -72,7 +98,7 @@ const Home = () => {
                                                 <img src={book.volumeInfo.imageLinks?.thumbnail} alt="Book Cover" className="book-cover-details" />
                                                 <h3>Title: {book.volumeInfo.title}</h3>
                                                 <p>Author: {book.volumeInfo.authors?.[0]}</p>
-                                                <button onClick={()=>{console.log(book.id)}}>Exchange Now</button>
+                                                <button onClick={() => handleExchangeClick(book.id)}>Exchange Now</button>
                                             </>
                                         )}
                                         {!book.volumeInfo && (

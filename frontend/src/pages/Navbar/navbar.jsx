@@ -1,74 +1,77 @@
-import React from 'react'
-import"./navbar.css" ;
-// images import
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import "./navbar.css";
+// Images import
 import user from "../images/user.jpg";
 import cart from "../images/cart.jpeg";
 
 const Navbar = () => {
-  return (
-   
-      
-    <nav className="navbar">
-        <div className="navlogo">
-           <span>KitabeXchange</span>
-        </div>
-        
-        <div className="nav-links">
-            <ul>
-            <li className="dropdown">
-                <a href="#" className="dropbtn">Books</a>
-                <div className="dropdown-content">
-                    <div className="dropdown-column">
-                        <h4>Fiction</h4>
-                        <a href="#">Literary Fiction</a>
-                        <a href="#">Historical Fiction</a>
-                        <a href="#">Science Fiction</a>
-                    </div>
-                    <div className="dropdown-column">
-                        <h4>Non-Fiction</h4>
-                        <a href="#">Biographies</a>
-                        <a href="#">Self-Help</a>
-                        <a href="#">Health</a>
-                    </div>
-                    <div className="dropdown-column">
-                        <h4>Other Genres</h4>
-                        <a href="#">Mystery</a>
-                        <a href="#">Fantasy</a>
-                        <a href="#">Romance</a>
-                    </div>
-                    <div className="dropdown-column">
-                        <h4>Self-Help</h4>
-                        <a href="#">Self Discovery</a>
-                        <a href="#">Self Improvement</a>
-                        <a href="#">Subconscious Mind</a>  
-                    </div>
-                    <div className="dropdown-column">
-                        <h4>Technology</h4>
-                        <a href="#">Science</a>
-                        <a href="#">Computers</a>
-                        <a href="#">Cyber world</a>  
-                    </div>
-                </div>
-            </li>
-        </ul>
-        </div>
-        <div className="Navsearch-container">
-            <input type="text" placeholder="Search books..." className="Navsearch-bar"></input>
-            <button className="search-btn">Search</button>
-        </div>
-        <div>
-        <ul className="nav-links">
-          <li><a href="#">Sign Up</a></li>
-          <li><a href="#">Login</a></li>
-        </ul>
-        </div>
-        <div className="Navicons">
-            <a href="#" className="Navicon"><img src={user} alt="Profile" className="navicon-img"></img></a>
-             <a href="#" className="Navicon"><img src={cart} alt="Cart" className="navicon-img"></img></a>
-        </div>
-   
-</nav>
-  )
-}
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const navigate = useNavigate();
+    const location = useLocation(); // Get the current route
 
-export default Navbar
+    // Check for JWT token in localStorage
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        setIsLoggedIn(!!token); // Set to true if token exists
+    }, []);
+
+    // Handle logout
+    const handleLogout = () => {
+        localStorage.removeItem("token"); // Remove JWT token
+        setIsLoggedIn(false); // Update state
+        navigate("/login"); // Redirect to login page
+    };
+
+    // Determine if search bar should be hidden
+    const hideSearchBar = location.pathname === "/login" || location.pathname === "/signup";
+
+    return (
+        <nav className="navbar">
+            <div className="navlogo">
+                <span>KitabeXchange</span>
+            </div>
+
+            {!hideSearchBar && (
+                <div className="Navsearch-container">
+                    <input type="text" placeholder="Search books..." className="Navsearch-bar" />
+                    <button className="search-btn">Search</button>
+                </div>
+            )}
+
+            <div>
+                <ul className="nav-links">
+                    {!isLoggedIn ? (
+                        <>
+                            <li>
+                                <a href="/signup">Sign Up</a>
+                            </li>
+                            <li>
+                                <a href="/login">Login</a>
+                            </li>
+                        </>
+                    ) : (
+                        <li>
+                            <button className="logout-btn" onClick={handleLogout}>
+                                Logout
+                            </button>
+                        </li>
+                    )}
+                </ul>
+            </div>
+
+            {isLoggedIn && (
+                <div className="Navicons">
+                    <a href="#" className="Navicon">
+                        <img src={user} alt="Profile" className="navicon-img" />
+                    </a>
+                    <a href="#" className="Navicon">
+                        <img src={cart} alt="Cart" className="navicon-img" />
+                    </a>
+                </div>
+            )}
+        </nav>
+    );
+};
+
+export default Navbar;
